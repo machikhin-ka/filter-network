@@ -1,0 +1,77 @@
+<html>
+<head>
+    <title>Filters</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+            crossorigin="anonymous"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+</head>
+<body>
+<div class="container"><br>
+    <div style="text-align: center;">
+        <h2>Нанесение фильтров на фотографии</h2>
+    </div>
+</div>
+{% if image != None %}
+    <div style="text-align: center">
+        <img src="data:;base64,{{ image }}" class="rounded mx-auto d-block" alt="..."/>
+    </div>
+{% endif %}
+<div class=container"><br>
+    <div class="row align-items-center justify-content-center">
+        <div class="col-md-4">
+            <form action="/downloadPhoto" method="post" role="form" enctype="multipart/form-data">
+                <div class="form-group">
+                    <div style="text-align: center;">
+                        <h4>Доступные фильтры:</h4>
+                    </div>
+                    <div class="d-grid gap-2 d-md-block" style="text-align: center;">
+                        <input type="radio" class="btn-check" name="filters" value="cartoon" id="cartoon"
+                               autocomplete="off" checked>
+                        <label class="btn btn-outline-success" for="cartoon">Мультик</label>
+
+                        <input type="radio" class="btn-check" name="filters" value="negative" id="negative"
+                               autocomplete="off">
+                        <label class="btn btn-outline-success" for="negative">Негатив</label>
+
+                        <input type="radio" class="btn-check" name="filters" value="vintage" id="vintage"
+                               autocomplete="off">
+                        <label class="btn btn-outline-success" for="vintage">Винтаж</label>
+
+                        <input type="radio" class="btn-check" name="filters" value="cool" id="cool" autocomplete="off">
+                        <label class="btn btn-outline-success" for="cool">Холодный</label>
+                    </div>
+                    <br>
+                    <br>
+                    <label for="file"></label>
+                    <input type="file" name="file" class="form-control form-control-lg" value={{ file }}>
+                </div>
+                <br>
+                <div class="input-group">
+                    <span class="input-group-text">Введите почту (google)</span>
+                    <textarea class="form-control" aria-label="With textarea" name="email"></textarea>
+                </div>
+                <br>
+                <br>
+                {% if alert != None %}
+                    <div class="alert alert-primary" role="alert">
+                        {{ alert }}
+                    </div>
+                {% endif %}
+                <div class="d-grid gap-2 d-md-block" style="text-align: center;">
+                    <button type="submit" class="btn btn-success" formaction="/filterPhoto">Отобразить на странице
+                    </button>
+                    <button type="submit" class="btn btn-warning">Загрузить на диск</button>
+                    <button type="submit" class="btn btn-warning" formaction="/sendEmail">Отправить на почту</button>
+                </div>
+            </form>
+            <br>
+            <a href="http://t.me/filter_mipt_bot" class="link-primary">Telegram bot</a>
+        </div>
+    </div>
+</div>
+</body>
+</html>
