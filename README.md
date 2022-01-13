@@ -27,7 +27,7 @@ git clone  https://github.com/machikhin-ka/filter-network.git
 - __MAIL_USERNAME/MAIL_DEFAULT_SENDER__ - your mail username
 - __MAIL_PASSWORD__ - your mail password
 - __TELEGRAM_TOKEN__ - telegram bot token (_you can create telegram bots
-  using [BotFather](https://core.telegram.org/bots)_)
+  using [BotFather](https://t.me/botfather)_)
 
 3. Build docker containers:
 
@@ -42,7 +42,7 @@ __Note__: The application can be opened locally at: http://localhost:5000
 1. Select a filter
 2. Upload a photo
 3. Enter the mail to send the result to it (optional)
-4. Displaying results:
+4. Getting results:
     - Display - display on the page
     - Download - upload to drive
     - Send mail - send the result to the email specified in 3rd point
