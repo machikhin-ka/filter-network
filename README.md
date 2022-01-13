@@ -12,7 +12,7 @@
 __Note__: You can try using the project on an already running AWT instance:
 
 - [Telegram bot](http://t.me/filter_mipt_bot)
-- [Web page](http://ec2-18-116-230-94.us-east-2.compute.amazonaws.com:5000)
+- [Web page](http://ec2-18-117-218-8.us-east-2.compute.amazonaws.com:5000)
 
 ## Installation guide:
 
