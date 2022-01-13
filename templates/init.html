@@ -12,13 +12,13 @@
 <body>
 <div class="container"><br>
     <div style="text-align: center;">
-        <h2>Нанесение фильтров на фотографии</h2>
+        <h2>Applying filters to your photos</h2>
     </div>
 </div>
 {% if image != None %}
-    <div style="text-align: center">
-        <img src="data:;base64,{{ image }}" class="rounded mx-auto d-block" alt="..."/>
-    </div>
+<div style="text-align: center">
+    <img src="data:;base64,{{ image }}" class="rounded mx-auto d-block" alt="..."/>
+</div>
 {% endif %}
 <div class=container"><br>
     <div class="row align-items-center justify-content-center">
@@ -26,46 +26,42 @@
             <form action="/downloadPhoto" method="post" role="form" enctype="multipart/form-data">
                 <div class="form-group">
                     <div style="text-align: center;">
-                        <h4>Доступные фильтры:</h4>
+                        <h5>Available filters:</h5>
                     </div>
                     <div class="d-grid gap-2 d-md-block" style="text-align: center;">
                         <input type="radio" class="btn-check" name="filters" value="cartoon" id="cartoon"
                                autocomplete="off" checked>
-                        <label class="btn btn-outline-success" for="cartoon">Мультик</label>
+                        <label class="btn btn-outline-success" for="cartoon">Cartoon</label>
 
                         <input type="radio" class="btn-check" name="filters" value="negative" id="negative"
                                autocomplete="off">
-                        <label class="btn btn-outline-success" for="negative">Негатив</label>
+                        <label class="btn btn-outline-success" for="negative">Negative</label>
 
                         <input type="radio" class="btn-check" name="filters" value="vintage" id="vintage"
                                autocomplete="off">
-                        <label class="btn btn-outline-success" for="vintage">Винтаж</label>
+                        <label class="btn btn-outline-success" for="vintage">Vintage</label>
 
                         <input type="radio" class="btn-check" name="filters" value="cool" id="cool" autocomplete="off">
-                        <label class="btn btn-outline-success" for="cool">Холодный</label>
+                        <label class="btn btn-outline-success" for="cool">Cool</label>
                     </div>
                     <br>
-                    <br>
-                    <label for="file"></label>
-                    <input type="file" name="file" class="form-control form-control-lg" value={{ file }}>
+                    <input type="file" name="file" class="form-control form-control-lg">
                 </div>
                 <br>
                 <div class="input-group">
-                    <span class="input-group-text">Введите почту (google)</span>
+                    <span class="input-group-text">Type Google email</span>
                     <textarea class="form-control" aria-label="With textarea" name="email"></textarea>
                 </div>
                 <br>
-                <br>
                 {% if alert != None %}
-                    <div class="alert alert-primary" role="alert">
-                        {{ alert }}
-                    </div>
+                <div class="alert alert-primary" role="alert">
+                    {{ alert }}
+                </div>
                 {% endif %}
                 <div class="d-grid gap-2 d-md-block" style="text-align: center;">
-                    <button type="submit" class="btn btn-success" formaction="/filterPhoto">Отобразить на странице
-                    </button>
-                    <button type="submit" class="btn btn-warning">Загрузить на диск</button>
-                    <button type="submit" class="btn btn-warning" formaction="/sendEmail">Отправить на почту</button>
+                    <button type="submit" class="btn btn-success" formaction="/filterPhoto">Display</button>
+                    <button type="submit" class="btn btn-warning">Download</button>
+                    <button type="submit" class="btn btn-warning" formaction="/sendEmail">Send email</button>
                 </div>
             </form>
             <br>

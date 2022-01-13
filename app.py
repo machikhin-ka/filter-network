@@ -24,15 +24,15 @@ cool = Cool()
 def send_email():
     result_bytes = process_filter()
     if not result_bytes:
-        return render_template('init.html', image=None, alert='Вставьте изображение')
+        return render_template('init.html', image=None, alert='Insert an image')
     email = request.form['email']
     if not email:
-        return render_template('init.html', image=None, alert='Введите почту')
+        return render_template('init.html', image=None, alert='Type your email')
     msg = Message("Filter photo", recipients=[email])
-    msg.body = "Обработанное изображение:"
+    msg.body = "Processed image:"
     msg.attach("image.jpg", "image/jpg", result_bytes)
     mail.send(msg)
-    return render_template('init.html', image=None, alert='Изображение отправлено')
+    return render_template('init.html', image=None, alert='The image has been sent')
 
 
 @app.route('/')
@@ -50,7 +50,7 @@ def post_init():
 def filter_photo():
     result_bytes = process_filter()
     if not result_bytes:
-        return render_template('init.html', image=None, alert='Вставьте изображение')
+        return render_template('init.html', image=None, alert='Insert an image')
     image = b64encode(result_bytes).decode("utf-8")
     return render_template("init.html", image=image, alert=None)
 
@@ -59,7 +59,7 @@ def filter_photo():
 def download_photo():
     result_bytes = process_filter()
     if not result_bytes:
-        return render_template('init.html', image=None, alert='Вставьте изображение')
+        return render_template('init.html', image=None, alert='Insert an image')
     mem = io.BytesIO()
     mem.write(result_bytes)
     mem.seek(0)
